@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "potatofix",
+  "version": "1.0.0",
+  "name": "PotatoFix - Low-End PC Lag Remover",
+  "description": "Tối ưu hóa hiệu năng, giảm RAM, culling thực thể và sửa giật lag cho Minecraft Java 1.21.10",
+  "authors": [
+    "NguyenKimYen",
+    "Fabric Community"
+  ],
+  "contact": {
+    "homepage": "https://github.com/potatofix/potatofix-1.21.10",
+    "sources": "https://github.com/potatofix/potatofix-1.21.10"
+  },
+  "license": "MIT",
+  "icon": "assets/potatofix/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.potatofix.PotatoFixMod"
+    ],
+    "client": [
+      "com.potatofix.PotatoFixClient"
+    ]
+  },
+  "mixins": [
+    "potatofix.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": "1.21.10",
+    "java": ">=21"
+  },
+  "suggests": {
+    "sodium": ">=0.6.0",
+    "lithium": ">=0.13.0"
+  }
+}
