@@ -1,5 +1,6 @@
-import net.minecraft.util.Identifier;
 package com.potatofix;
+
+import net.minecraft.util.Identifier;
 
 import com.potatofix.dynamic.DynamicRenderDistanceHandler;
 import com.potatofix.hud.PerformanceMiniHud;
