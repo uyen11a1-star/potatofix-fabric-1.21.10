@@ -12,7 +12,7 @@ public class PerformanceMiniHud {
         if (!PotatoFixMod.CONFIG.miniHudEnabled) return;
 
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client.options.debugEnabled) return; // Nếu đang bật F3 to thì ẩn mini HUD
+        if (client.getDebugHud().shouldShowDebugHud()) return; // Nếu đang bật F3 to thì ẩn mini HUD
 
         long now = System.currentTimeMillis();
         if (now - lastUpdateTime > 500) { // Cập nhật text mỗi 500ms để không tốn CPU

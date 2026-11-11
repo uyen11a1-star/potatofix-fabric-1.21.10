@@ -3,17 +3,12 @@
   "minVersion": "0.8",
   "package": "com.potatofix.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "memory.BlockPosAllocationMixin",
-    "lighting.LightEngineBatchMixin"
-  ],
+  "mixins": [],
   "client": [
     "culling.EntityCullingMixin",
     "culling.TileEntityThrottleMixin",
-    "memory.GlResourceCleanerMixin",
     "particles.ParticleManagerMixin",
-    "weather.WeatherRenderMixin",
-    "hud.InGameHudMixin"
+    "weather.WeatherRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
