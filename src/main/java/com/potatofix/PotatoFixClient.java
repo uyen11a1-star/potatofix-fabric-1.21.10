@@ -1,3 +1,4 @@
+import net.minecraft.util.Identifier;
 package com.potatofix;
 
 import com.potatofix.dynamic.DynamicRenderDistanceHandler;
@@ -10,6 +11,7 @@ import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 public class PotatoFixClient implements ClientModInitializer {
+    public static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of("potatofix", "potatofix"));
     public static KeyBinding openConfigKey;
     public static KeyBinding toggleHudKey;
 
@@ -22,7 +24,7 @@ public class PotatoFixClient implements ClientModInitializer {
                 "key.potatofix.config",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_O,
-                "category.potatofix"
+                CATEGORY
         ));
 
         // Phím tắt bật/tắt Mini HUD (Mặc định: Phím F8)
@@ -30,7 +32,7 @@ public class PotatoFixClient implements ClientModInitializer {
                 "key.potatofix.toggle_hud",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_F8,
-                "category.potatofix"
+                CATEGORY
         ));
 
         // Giám sát Client Tick để tự hạ render distance nếu lag
