@@ -27,6 +27,20 @@ jobs:
         with:
           gradle-version: '8.14.3'
 
+      - name: Inspect Minecraft mappings
+        run: |
+          gradle help --no-daemon
+
+          echo "=== Minecraft render classes ==="
+
+          find ~/.gradle/caches/fabric-loom .gradle/loom-cache \
+            -type f -name "*.jar" 2>/dev/null |
+          while read jarfile; do
+            jar tf "$jarfile" 2>/dev/null |
+            grep -E 'EntityRender(Dispatcher|Manager)|BlockEntityRender(Dispatcher|Manager)' |
+            sed "s|^|$jarfile: |"
+          done
+
       - name: Build JAR
         run: gradle build --no-daemon
 
