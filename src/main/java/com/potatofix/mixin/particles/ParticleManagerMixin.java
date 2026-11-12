@@ -1,6 +1,7 @@
 package com.potatofix.mixin.particles;
 
 import com.potatofix.PotatoFixMod;
+import com.potatofix.util.ShaderCompat;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.client.particle.ParticleRenderer;
@@ -22,7 +23,7 @@ public class ParticleManagerMixin {
     private void onAddParticle(Particle particle, CallbackInfo ci) {
         if (particle == null) return;
 
-        int limit = PotatoFixMod.CONFIG.particleLimit;
+        int limit = ShaderCompat.scaleParticleLimit(PotatoFixMod.CONFIG.particleLimit);
         if (limit <= 0) {
             ci.cancel(); // Tắt toàn bộ hạt
             return;

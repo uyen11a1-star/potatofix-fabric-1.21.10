@@ -1,6 +1,7 @@
 package com.potatofix.mixin.culling;
 
 import com.potatofix.PotatoFixMod;
+import com.potatofix.util.ShaderCompat;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.entity.EntityRenderManager;
@@ -21,7 +22,7 @@ public class EntityCullingMixin {
         if (!PotatoFixMod.CONFIG.entityCullingEnabled) return;
         if (entity == MinecraftClient.getInstance().player) return;
 
-        double maxDist = PotatoFixMod.CONFIG.entityCullingDistance;
+        double maxDist = PotatoFixMod.CONFIG.entityCullingDistance * ShaderCompat.distanceScale();
         if (entity.squaredDistanceTo(x, y, z) > maxDist * maxDist) {
             cir.setReturnValue(false);
         }

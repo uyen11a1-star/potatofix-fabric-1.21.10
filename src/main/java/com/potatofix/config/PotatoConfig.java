@@ -29,6 +29,10 @@ public class PotatoConfig {
     public boolean fastLightEngine = true;
     public boolean gcAggressiveEviction = true;
     public boolean miniHudEnabled = true;
+    // Khi Iris bật shader pack: siết khoảng cách cull và giới hạn hạt
+    public boolean shaderAwareProfile = true;
+    public float shaderDistanceScale = 0.75f;
+    public float shaderParticleScale = 0.5f;
 
     public static PotatoConfig loadOrCreate() {
         if (FILE.exists()) {

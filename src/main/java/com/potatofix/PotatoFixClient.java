@@ -4,6 +4,7 @@ import net.minecraft.util.Identifier;
 
 import com.potatofix.dynamic.DynamicRenderDistanceHandler;
 import com.potatofix.hud.PerformanceMiniHud;
+import com.potatofix.util.ShaderCompat;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -38,6 +39,7 @@ public class PotatoFixClient implements ClientModInitializer {
 
         // Giám sát Client Tick để tự hạ render distance nếu lag
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            ShaderCompat.tick();
             if (PotatoFixMod.CONFIG.dynamicRenderDistance) {
                 DynamicRenderDistanceHandler.tick(client);
             }

@@ -1,6 +1,7 @@
 package com.potatofix.mixin.culling;
 
 import com.potatofix.PotatoFixMod;
+import com.potatofix.util.ShaderCompat;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.block.entity.BlockEntityRenderManager;
@@ -27,7 +28,7 @@ public class TileEntityThrottleMixin {
         if (player == null) return;
 
         double distSq = state.pos.getSquaredDistance(player.getX(), player.getY(), player.getZ());
-        double limitDist = PotatoFixMod.CONFIG.tileEntityDistance;
+        double limitDist = PotatoFixMod.CONFIG.tileEntityDistance * ShaderCompat.distanceScale();
         if (distSq > limitDist * limitDist) {
             ci.cancel();
         }
