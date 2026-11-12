@@ -33,6 +33,9 @@ public class PotatoConfig {
     public boolean shaderAwareProfile = true;
     public float shaderDistanceScale = 0.75f;
     public float shaderParticleScale = 0.5f;
+    // Giám sát RAM: thiếu RAM thì tự hạ render distance + giảm hạt; cảnh báo nếu heap quá thấp
+    public boolean memoryGuard = true;
+    public int lowHeapWarnMb = 1536;
 
     public static PotatoConfig loadOrCreate() {
         if (FILE.exists()) {
